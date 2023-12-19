@@ -20,7 +20,8 @@ def load_model(direction):
 
 
 st.title(titles[st.session_state.direction] + ' переводчик')
-st.button(titles[not st.session_state.direction], on_click=toggle_direction)
+st.button(titles[not st.session_state.direction],
+          on_click=toggle_direction, key='btn_direction')
 
 # получаем текст для перевода
 in_text = st.text_area(
@@ -28,7 +29,7 @@ in_text = st.text_area(
     placeholder='Enter text here',
     key='in_text'
 )
-btn = st.button("Translate", type="primary")
+btn = st.button("Translate", type="primary", key="translate")
 
 out_text = ''
 if btn and in_text:
