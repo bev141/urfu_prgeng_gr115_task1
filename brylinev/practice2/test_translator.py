@@ -1,5 +1,6 @@
 from streamlit.testing.v1 import AppTest
 
+
 def test_en_ru():
     # создаем приложение
     at = AppTest.from_file("translator.py")
@@ -13,6 +14,7 @@ def test_en_ru():
     # проверяем что нет ошибок и переведенная строка равна ожидаемой
     assert not at.exception
     assert at.text_area(key='out_text').value.strip("!?,. ").lower() == 'урок'
+
 
 def test_ru_en():
     # создаем приложение
@@ -28,4 +30,5 @@ def test_ru_en():
     at.button(key="translate").click().run(timeout=60)
     # проверяем что нет ошибок и переведенная строка равна ожидаемой
     assert not at.exception
-    assert at.text_area(key='out_text').value.strip("!?,. ").lower() == 'lesson'
+    assert at.text_area(key='out_text').value.strip("!?,. ").lower() \
+        == 'lesson'

@@ -8,10 +8,13 @@ titles = ['Англо-русский', 'Русско-английский']
 if 'direction' not in st.session_state:
     st.session_state.direction = False
 
+
 # меняем направление перевода
 def toggle_direction():
     st.session_state.direction = not st.session_state.direction
-    st.session_state.in_text, st.session_state.out_text = st.session_state.out_text, st.session_state.in_text
+    st.session_state.in_text, st.session_state.out_text = \
+        st.session_state.out_text, st.session_state.in_text
+
 
 @st.cache_resource
 def load_model(direction):
